@@ -9,10 +9,4 @@ public class HomeapApplication {
     public static void main(String[] args) {
         SpringApplication.run(HomeapApplication.class, args);
     }
-
-
-    public void retu(){
-
-    }
-
 }
