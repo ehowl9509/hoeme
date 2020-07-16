@@ -10,4 +10,9 @@ public class HomeapApplication {
         SpringApplication.run(HomeapApplication.class, args);
     }
 
+
+    public void retu(){
+
+    }
+
 }
