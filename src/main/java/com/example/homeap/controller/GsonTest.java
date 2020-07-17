@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class TestClass {
+public class GsonTest {
 
     @RequestMapping("/home")
     public String home(){
@@ -103,3 +103,4 @@ public class TestClass {
     }
 
 }
+
