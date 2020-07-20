@@ -1,12 +1,14 @@
 package com.example.homeap.controller;
 
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,10 +16,6 @@ import java.util.Map;
 @Controller
 public class GsonTest {
 
-    @RequestMapping("/home")
-    public String home(){
-        return "testPage";
-    }
 
     @RequestMapping("/test1")
     public void gsontest(){
@@ -102,5 +100,29 @@ public class GsonTest {
 
     }
 
+    @RequestMapping("/test5")
+    public void gsontest5() {
+        // JsonObject 생성
+
+        int sum = 0;
+        int sumi = 0;
+        for (int i = 1; i < 100; i++) {
+            if(i%2==0){
+                sumi+=i;
+            }
+            else{
+                sum+=i;
+            }
+        }
+        System.out.println("#######"+sumi);
+        System.out.println("#######"+sum);
+
+
+        for(int a = 1; a <= 9; a++){
+            for(int b = 1; b <=9; b++){
+                System.out.println("b"+"*"+"a" + "=" + b * a);
+            }
+        }
+    }
 }
 
