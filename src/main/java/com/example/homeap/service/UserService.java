@@ -3,7 +3,10 @@ package com.example.homeap.service;
 
 import com.example.homeap.repository.UserRepository;
 import com.example.homeap.vo.UserVo;
+import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,10 +24,18 @@ public class UserService {
         return users;
     }
 
-    public String findByUserid(String UserId){
+    public UserVo findByUserid(String UserId){
         UserVo userVo = userRepository.findByUserid(UserId);
-        System.out.println("######"+ userVo);
-        return UserId;
+        return userVo;
+    }
+    public void LogSave(UserVo userReq){
+        UserVo userVo = UserVo.builder()
+                .userid(userReq.getUserid())
+                .username(userReq.getUsername())
+                .userpw(userReq.getUserpw())
+                .build();
+        userRepository.save(userVo);
+        System.out.println("######"+userReq.getUsername());
     }
 
 }
